@@ -29,6 +29,24 @@ const sendData = (url = ``, data = {},  _method="POST") => {
     .then(response => response.json()); // レスポンスの JSON を解析
 }
 
+// サインアップを押されたらフェッチを実行するミドルウェア
+/**
+ * 関数の説明をかくコメントスタイル。登録ボタン押下時の処理
+ */
+const onButtonClickSignUp = ( ) =>{
+  // HTMLから値を取得する
+const name = document.getElementById( 'signUpName' ).value;
+const bio = document.getElementById( 'signUpBio' ).value;
+const email = document.getElementById( 'signUpEmail' ).value;
+const password = document.getElementById( 'signUpPassword' ).value;
+const passwordConfirmation = document.getElementById( 'signUpPasswordConfirmation' ).value;
+
+console.log(name, bio, email, password, passwordConfirmation);
+
+  // 登録APIを呼び出す
+}
+
+onButtonClickSignUp( );
 
 //ばーちーさんのスラックより
 const data = {
@@ -41,22 +59,29 @@ const data = {
 	}
 }// あとから書き換えられないように安全のためにconstでかこう！
 
-console.log( 'start' )
+// console.log( 'start' )
 
-//使ってみる
-sendData(urlSignUp, data)
-  .then(result => {
-    console.log(result);
-  })
-  .catch(error => {
-    console.log(error);
-  })
+// //使ってみる
+// sendData(urlSignUp, data)
+//   .then(result => {
+//     console.log(result);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   })
 
-console.log( 'end' )
+// console.log( 'end' )
 
 
 
-  function OnButtonClick() {
-    target = document.getElementById("output");
-    target.innerHTML = "Penguin";
-  }
+  // function OnButtonClick() {
+  //   target = document.getElementById("output");
+  //   target.innerHTML = "Penguin";
+  // }
+
+  // ボタンを押したらAPIがフェッチされるようにする
+// ミドルウェア
+// ボタンを押したらミドルウェアを呼び出す
+// ボタン押されました
+// 間の関数をつくる
+// フェッチします

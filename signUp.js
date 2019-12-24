@@ -46,7 +46,8 @@ const onButtonClickSignUp = () => {
 
   // 登録APIを呼び出す
   sendData(urlSignUp, data).then(result => {
-    console.log(result);
+    // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
+    localStorage.token = result.token;
   });
 }
 

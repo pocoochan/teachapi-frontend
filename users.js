@@ -25,12 +25,4 @@ const onButtonClickGetUsers = () => {
     console.log(result)
   })
 
-
 }
-
-
-
-// page: ページの番号(数字)
-// limit: 1ページあたり何個あるか
-// query: 単語を入れると検索できる
-// headerにtoken入れる

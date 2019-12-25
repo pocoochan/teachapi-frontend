@@ -1,5 +1,5 @@
 /**
- * 登録ボタン押下時の処理
+ * ログインボタン押下時の処理
  */
 const onButtonClickSignIn = () => {
   // HTMLから値を取得する

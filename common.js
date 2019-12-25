@@ -9,7 +9,8 @@ const myId = localStorage.getItem('id');
 const urlEdit = `https://teachapi.herokuapp.com/users/${myId}`;
 //[アカウント削除]
 const urlDelete = `https://teachapi.herokuapp.com/users/${myId}`;
-
+//[タイムライン表示]
+const urlTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 // [投稿一覧]
 const urlPosts = 'https://teachapi.herokuapp.com/posts';
 

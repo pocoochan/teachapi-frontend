@@ -1,3 +1,4 @@
+// ユーザー情報を編集する
 const onButtonClickPutEdit = () => {
   console.log('onButtonClickPutEdit');
 
@@ -14,27 +15,18 @@ const onButtonClickPutEdit = () => {
 
   console.log(urlEdit, data)
 
-  //URLとIDを結合する
-
 
   // 登録APIを呼び出す
   sendPUTData(urlEdit, data).then(result => {
-    // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
-    //ユーザー登録に成功したIDをローカルストレージに保存する
     console.log(result)
-
   });
 }
 
 
-// PUT https://teachapi.herokuapp.com/users/{id}
-// body parameterで
-// ```
-// {
-// 	"user_params": {
-// 		"name": "名前を入れてね",
-// 		"bio": "自己紹介を入れてね",
-// 	}
-// }
-// ```
-// headerにtoken入れる
+// アカウント削除
+const onButtonClickDelete = () => {
+
+  // 登録APIを呼び出す
+  sendDeleteData(urlDelete).then(result => {
+  });
+}

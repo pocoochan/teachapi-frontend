@@ -5,8 +5,11 @@ const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
 //[ユーザー一覧]
 const urlUsers = 'https://teachapi.herokuapp.com/users';
 //[ユーザー編集]
-const myId = localStorage.getItem('id')
+const myId = localStorage.getItem('id');
 const urlEdit = `https://teachapi.herokuapp.com/users/${myId}`;
+//[アカウント削除]
+const urlDelete = `https://teachapi.herokuapp.com/users/${myId}`;
+
 // [投稿一覧]
 const urlPosts = 'https://teachapi.herokuapp.com/posts';
 
@@ -62,4 +65,20 @@ const sendPUTData = (url = ``, data = {}, _method = "PUT") => {
     body: JSON.stringify(data || "null"),
   })
     .then(response => response.json()); // レスポンスの JSON を解析
+}
+
+const sendDeleteData = (url = ``, _method = "DELETE") => {
+  // 既定のオプションには * が付いています
+  return fetch(url, {
+    method: _method, // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    }
+  })
+    .then(response => response.json()) // レスポンスの JSON を解析
+    .then(json =>{
+      localStorage.clear();
+      alert("ユーザー削除完了です！");
+    })
 }

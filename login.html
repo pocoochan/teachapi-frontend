@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=“ja”>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>ログイン</title>
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="text-primary mb-4">ログイン</h1>
+    <div class="signUpFrom  mb-4">
+      <input id="signInEmail" type="email" placeholder="email">
+      <input id="signInPassword" type="password" placeholder="password">
+      <input id="signInPasswordConfirmation" type="password" placeholder="passwordを再入力">
+      <a href="" onclick="onButtonClickSignIn();return false;" class="btn btn-primary">ログイン</a>
+    </div>
+
+    <div>
+        <p>ログイン不要</p>
+        <ul>
+          <li><a href="index.html">ユーザー登録</a></li>
+        </ul>
+        <p>ログイン必要</p>
+        <ul>
+          <li><a href="users.html">ユーザー一覧</a></li>
+          <li><a href="posts.html">投稿一覧</a></li>
+          <li><a href="edit.html">ユーザー編集</a></li>
+        </ul>
+      </div>
+  </div>
+  <script src="common.js"></script>
+  <script src="signIn.js"></script>
+</body>
+</html>
+
+<!-- required value="na@example.com"
+required value="password"
+required value="password" value="password" -->

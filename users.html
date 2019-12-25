@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang=“ja”>
+<head>
+  <meta charset="UTF-8">
+  <title>ユーザー一覧</title>
+</head>
+<body>
+  <input id="usersPage" type="text"><br>
+  <input id="usersLimit" type="text"><br>
+  <input id="usersQuery" type="text"><br>
+  <button onclick="onButtonClickGetUsers( )">ユーザー一覧をみる
+
+  <script src="common.js"></script>
+  <script src="users.js"></script>
+</body>
+</html>
+
+
+<!-- リクエストの件名
+ヘッダーにTOKUN
+認証
+ユーザー一覧ちょうだい
+お前のTOKUNを見せろ
+TOKUNを持っていないとユーザー一覧をわたせないよ（セキュリティ）
+付与されたトークンをローカルストレージに保存して使う -->

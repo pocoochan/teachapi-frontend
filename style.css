@@ -1,0 +1,15 @@
+.wrapper {
+  width: 600px;
+  max-width: 95%;
+  margin: 50px auto;
+  color: #333;
+}
+
+.signUpFrom {
+  width: 300px;
+}
+
+.signUpFrom input {
+  width: 100%;
+  margin-bottom: 20px;
+}

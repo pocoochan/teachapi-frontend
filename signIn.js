@@ -23,5 +23,11 @@ const onButtonClickSignIn = () => {
   sendDataWithToken(urlSignIn, data).then(result => {
     // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
     localStorage.token = result.token;
+
+    if (localStorage.token) {
+      document.getElementById('login_data').innerHTML = 'ただいまログイン中です<br> <a href="" onclick="log_out();" class="btn btn-danger btn mb-4">ログアウト</a>';
+    }
   });
 }
+
+// .catch(error => console.log(`Error: ${error}`));

@@ -80,5 +80,6 @@ const sendDeleteData = (url = ``, _method = "DELETE") => {
     .then(json =>{
       localStorage.clear();
       alert("ユーザー削除完了です！");
+      window.location.href = './index.html'; //アカウント登録画面に強制遷移
     })
 }

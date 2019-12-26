@@ -11,8 +11,6 @@ const urlEdit = `https://teachapi.herokuapp.com/users/${myId}`;
 const urlDelete = `https://teachapi.herokuapp.com/users/${myId}`;
 //[タイムライン表示]
 const urlTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
-// [投稿一覧]
-const urlPosts = 'https://teachapi.herokuapp.com/posts';
 // [新規投稿]
 const urlNewPost = 'https://teachapi.herokuapp.com/posts';
 // [投稿編集]
@@ -44,7 +42,15 @@ const sendGETData = (url = ``, data = {}, _method = "GET") => {
       "Authorization": "Bearer " + localStorage.getItem("token")
     }
   })
-    .then(response => response.json()); // レスポンスの JSON を解析
+    .then(response => response.json()) // レスポンスの JSON を解析
+    .then(json =>{
+      let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      json.forEach( element => {
+        timeline += `<p>${element.text}</p>`
+      });
+      document.getElementById('posts_area').innerHTML = timeline;
+    })
+    .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
 }
 
 const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
@@ -89,3 +95,21 @@ const sendDeleteData = (url = ``, _method = "DELETE") => {
       window.location.href = './index.html'; //アカウント登録画面に強制遷移
     })
 }
+
+const sendDeletePOST = (url = ``, _method = "DELETE") => {
+  // 既定のオプションには * が付いています
+  return fetch(url, {
+    method: _method, // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    }
+  })
+    .then(response => response.json()) // レスポンスの JSON を解析
+    .then(json =>{
+      localStorage.clear();
+      alert("投稿削除完了です！");
+      window.location.href = './login.html'; //ログイン画面に強制遷移
+    })
+}
+

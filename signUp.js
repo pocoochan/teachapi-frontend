@@ -2,10 +2,9 @@
 // {} オブジェクト
 
 
-
 // サインアップを押されたらフェッチを実行するミドルウェア
 /**
- * 関数の説明をかくコメントスタイル。登録ボタン押下時の処理
+ * 登録ボタン押下時の処理
  */
 const onButtonClickSignUp = () => {
   // HTMLから値を取得する
@@ -28,12 +27,17 @@ const onButtonClickSignUp = () => {
 
 
   console.log(urlSignUp, data)
-  
+
 
   // 登録APIを呼び出す
   sendData(urlSignUp, data).then(result => {
     // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
     localStorage.token = result.token;
+    localStorage.id = result.id;
+    localStorage.name = result.name;
+    localStorage.bio = result.bio;
+    localStorage.postId = result.postId;
+    console.log(result)
   });
 }
 

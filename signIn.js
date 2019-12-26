@@ -84,3 +84,15 @@ const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
     console.log(result)
   });
 }
+
+// ここから投稿削除
+const onButtonClickPostDelete = () => {
+
+  const number = document.getElementById('deletePostId').value;
+
+  // [URL]
+  const urlPostDelete = `https://teachapi.herokuapp.com/posts/${number}`;
+  // 登録APIを呼び出す
+  sendDeletePOST(urlPostDelete).then(result => {
+  });
+}

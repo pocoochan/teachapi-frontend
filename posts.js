@@ -1,5 +1,9 @@
 // タイムライン表示
 const onButtonClickTimeline = () => {
+
+    // [投稿一覧]
+const urlTimeline = 'https://teachapi.herokuapp.com/posts';
+
   // HTMLから値を取得する
   const page = document.getElementById('timelinePage').value;
   const limit = document.getElementById('timelineLimit').value;
@@ -23,5 +27,4 @@ const onButtonClickTimeline = () => {
   sendGETData(`${urlTimeline}?${qs}`, {}, "GET").then(result => {
     console.log(result)
   })
-
 }

@@ -36,7 +36,7 @@ const onButtonClickSignIn = () => {
 // ここから新規投稿
 const onButtonClickNewPost = () => {
   // HTMLから値を取得する
-  const email = document.getElementById('newPost').value;
+  const text = document.getElementById('newPost').value;
 
   //ばーちーさんのスラックより
   const data = {
@@ -59,16 +59,20 @@ const onButtonClickNewPost = () => {
 
 
 // ここから投稿編集
-const oonButtonClickEditPost = () => {
+const onButtonClickEditPost = () => {
   console.log('onButtonClickEditPost');
 
   // HTMLから値を取得する
-  const name = document.getElementById('editPostId').value;
-  const bio = document.getElementById('editPost').value;
+  const number = document.getElementById('postId').value;
+  const text = document.getElementById('editPost').value;
+
+  // [投稿編集]
+// const postId = localStorage.getItem('postId');
+const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
 
   const data = {
     "post_params": {
-      "text": "text"
+      "text": text
     }
   }
 

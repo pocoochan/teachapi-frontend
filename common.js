@@ -15,8 +15,9 @@ const urlTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 const urlPosts = 'https://teachapi.herokuapp.com/posts';
 // [新規投稿]
 const urlNewPost = 'https://teachapi.herokuapp.com/posts';
-// [新規編集]
-const urlEditPost = `https://teachapi.herokuapp.com/posts/${myId}`;
+// [投稿編集]
+// const postId = localStorage.getItem('postId');
+// const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
 
 
 //MDNからコピペしてきた関数

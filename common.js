@@ -13,6 +13,8 @@ const urlDelete = `https://teachapi.herokuapp.com/users/${myId}`;
 const urlTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 // [投稿一覧]
 const urlPosts = 'https://teachapi.herokuapp.com/posts';
+// [新規投稿]
+const urlNewPost = 'https://teachapi.herokuapp.com/posts';
 
 
 //MDNからコピペしてきた関数

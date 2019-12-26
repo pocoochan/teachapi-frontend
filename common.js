@@ -15,6 +15,8 @@ const urlTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 const urlPosts = 'https://teachapi.herokuapp.com/posts';
 // [新規投稿]
 const urlNewPost = 'https://teachapi.herokuapp.com/posts';
+// [新規編集]
+const urlEditPost = `https://teachapi.herokuapp.com/posts/${myId}`;
 
 
 //MDNからコピペしてきた関数
@@ -54,7 +56,7 @@ const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
     },
     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   })
-    .then(response => response.json()); // レスポンスの JSON を解析
+  .then(response => response.json()); // レスポンスの JSON を解析
 }
 
 const sendPUTData = (url = ``, data = {}, _method = "PUT") => {

@@ -2,24 +2,25 @@
 <html lang=“ja”>
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>ユーザー一覧</title>
 </head>
 <body>
-  <input id="usersPage" type="text"><br>
-  <input id="usersLimit" type="text"><br>
-  <input id="usersQuery" type="text"><br>
-  <button onclick="onButtonClickGetUsers( )">ユーザー一覧をみる
+  <div class="wrapper">
+      <h1 class="text-danger mb-5">ALL USERS</h1>
+      <input id="usersPage" class="mb-2" type="text" placeholder="ページ数"><br>
+      <input id="usersLimit" class="mb-2" type="text" placeholder="１ページに表示させる数"><br>
+      <input id="usersQuery" class="mb-2" type="text" placeholder="検索キーワード"><br>
+      <button type="button" class="btn btn-outline-danger mt-4 mb-5" onclick="onButtonClickGetUsers( )">ユーザー一覧をみる</button>
 
-  <script src="common.js"></script>
-  <script src="users.js"></script>
+      <div class="footer">
+          <a href="mypage.html" class="text-secondary mt-4 mb-5">Back</a>
+      </div>
+  </div>
+<script src="common.js"></script>
+<script src="users.js"></script>
 </body>
 </html>
-
-
-<!-- リクエストの件名
-ヘッダーにTOKUN
-認証
-ユーザー一覧ちょうだい
-お前のTOKUNを見せろ
-TOKUNを持っていないとユーザー一覧をわたせないよ（セキュリティ）
-付与されたトークンをローカルストレージに保存して使う -->

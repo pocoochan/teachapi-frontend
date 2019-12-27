@@ -2,6 +2,9 @@
  * ログインボタン押下時の処理
  */
 const onButtonClickSignIn = () => {
+  // [ユーザーログイン]
+const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
+
   // HTMLから値を取得する
   const email = document.getElementById('signInEmail').value;
   const password = document.getElementById('signInPassword').value;
@@ -15,26 +18,23 @@ const onButtonClickSignIn = () => {
       "passwordConfirmation": passwordConfirmation
       }
   }
-
   console.log(urlSignIn, data)
-
 
   // 登録APIを呼び出す
   sendDataWithToken(urlSignIn, data).then(result => {
     // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
     localStorage.token = result.token;
-
-    if (localStorage.token) {
-      document.getElementById('login_data').innerHTML = 'ただいまログイン中です<br> <a href="" onclick="log_out();" class="btn btn-danger btn mb-4">ログアウト</a>';
-    }
   });
 }
 
 // .catch(error => console.log(`Error: ${error}`));
 
 
-// ここから新規投稿
+// ----------ここから新規投稿
 const onButtonClickNewPost = () => {
+  // [新規投稿]
+  const urlNewPost = 'https://teachapi.herokuapp.com/posts';
+
   // HTMLから値を取得する
   const text = document.getElementById('newPost').value;
 
@@ -47,7 +47,6 @@ const onButtonClickNewPost = () => {
 
   console.log(urlNewPost, data)
 
-
   // 登録APIを呼び出す
   sendDataWithToken(urlNewPost, data).then(result => {
 
@@ -55,20 +54,28 @@ const onButtonClickNewPost = () => {
   });
 }
 
-// .catch(error => console.log(`Error: ${error}`));
+ //----------自分の投稿一覧を表示
+const showTimeline = () =>{
 
+  // [MyTimeline表示]
+  const myId = localStorage.getItem('id');
+  const urlMyTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 
-// ここから投稿編集
+  sendGETData02(`${urlMyTimeline}`, {}, "GET").then(result => {
+  });
+}
+
+// ----------ここから投稿編集
 const onButtonClickEditPost = () => {
   console.log('onButtonClickEditPost');
+
+  // [投稿編集]
+const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
 
   // HTMLから値を取得する
   const number = document.getElementById('postId').value;
   const text = document.getElementById('editPost').value;
 
-  // [投稿編集]
-// const postId = localStorage.getItem('postId');
-const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
 
   const data = {
     "post_params": {
@@ -78,20 +85,19 @@ const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
 
   console.log(urlEditPost, data)
 
-
   // 登録APIを呼び出す
   sendPUTData(urlEditPost, data).then(result => {
     console.log(result)
   });
 }
 
-// ここから投稿削除
+// ----------ここから投稿削除
 const onButtonClickPostDelete = () => {
+  // [URL]
+  const urlPostDelete = `https://teachapi.herokuapp.com/posts/${number}`;
 
   const number = document.getElementById('deletePostId').value;
 
-  // [URL]
-  const urlPostDelete = `https://teachapi.herokuapp.com/posts/${number}`;
   // 登録APIを呼び出す
   sendDeletePOST(urlPostDelete).then(result => {
   });

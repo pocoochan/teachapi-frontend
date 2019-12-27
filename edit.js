@@ -1,5 +1,9 @@
-// ユーザー情報を編集する
+// ----------ユーザー情報を編集する
 const onButtonClickPutEdit = () => {
+  //[ユーザー編集]
+const myId = localStorage.getItem('id');
+const urlEdit = `https://teachapi.herokuapp.com/users/${myId}`;
+
   console.log('onButtonClickPutEdit');
 
   // HTMLから値を取得する
@@ -23,8 +27,11 @@ const onButtonClickPutEdit = () => {
 }
 
 
-// アカウント削除
+// ----------アカウント削除
 const onButtonClickDelete = () => {
+
+  //[アカウント削除]
+const urlDelete = `https://teachapi.herokuapp.com/users/${myId}`;
 
   // 登録APIを呼び出す
   sendDeleteData(urlDelete).then(result => {

@@ -1,15 +1,111 @@
+body{
+  background: url(./img/texture171030IMGL0767_TP_V.jpg);
+  background-size:cover;
+}
+
 .wrapper {
   width: 600px;
   max-width: 95%;
   margin: 50px auto;
+  text-align: center;
   color: #333;
+  font-family: 'Poiret One', cursive;
+}
+.wrapper-mypage {
+  width: 600px;
+  max-width: 95%;
+  margin: 30px auto;
+  text-align: center;
+  color: #333;
+  font-family: 'Sawarabi Gothic', sans-serif;
 }
 
-.signUpFrom {
-  width: 300px;
+.signUpFrom{
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .signUpFrom input {
-  width: 100%;
-  margin-bottom: 20px;
+  text-align: center;
+}
+.wrapper input{
+  width: 200px;
+}
+.wrapper input:focus{
+  border-color: #521E3D;
+  opacity: 0.5;
+}
+
+.wrapper h1, .wrapper-mypage h1{
+  font-family: 'Poiret One', cursive;
+  letter-spacing: 14px;
+}
+.wrapper-mypage h2{
+  font-family: 'Comfortaa', cursive;
+  letter-spacing: 6px;
+  font-size: 1em;
+  border-bottom: dotted 2px #521E3D;
+  display: inline-block;
+  margin-bottom: 50px;
+  padding: 20px 0 6px 0;
+  color: #666;
+}
+.icon{
+  width: 40%;
+  height: auto;
+  margin-bottom: 70px;
+}
+.navbar-nav{
+  background-color: #EC3279;
+  padding: 20px 0;
+}
+.list{
+  width: 1280px;
+  max-width: 95%;
+  margin: 0 auto;
+  /* text-align: center; */
+  position: relative;
+}
+.list li{
+  list-style: none;
+  display: inline-block;
+  margin-right: 45px;
+  padding: 0 10px;
+}
+.list a{
+  color: white;
+}
+.list li:hover{
+  opacity: 0.5;
+}
+.logoutBtn{
+  position: absolute;
+  right: 45px;
+}
+.footer{
+  margin-top: 100px;
+}
+
+.section{
+  margin-bottom: 80px;
+}
+
+#myposts_area{
+  color:#666;
+  background-color: white;
+  height: 100%;
+  width: 480px;
+  margin: 0 auto;
+  border-radius: 3%;
+  box-shadow: 16px 28px 0px -3px rgba(0,0,0,0.1);
+}
+#posts_area{
+  color:#666;
+  background-color: white;
+  height: 100%;
+  width: 480px;
+  margin: 0 auto;
+  border-radius: 3%;
+  background-color: white;
 }

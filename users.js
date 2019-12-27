@@ -1,5 +1,9 @@
+// ----------ここからユーザー一覧をみる
 const onButtonClickGetUsers = () => {
   console.log('onButtonClickGetUsers');
+
+  //[ユーザー一覧]
+const urlUsers = 'https://teachapi.herokuapp.com/users';
 
   // HTMLから値を取得する
   const page = document.getElementById('usersPage').value;

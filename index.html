@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>ユーザー登録</title>
 </head>
 <body>
   <div class="wrapper">
-  <h1 class="text-primary mb-4">ユーザー登録</h1>
+  <h1 class="text-danger mb-5">ENTRY</h1>
     <div class="signUpFrom mb-4">
-      <input id="signUpName" type="text" placeholder="お名前"><br>
-      <input id="signUpBio" type="text" placeholder="自己紹介"><br>
-      <input id="signUpEmail" type="text" placeholder="email"><br>
-      <input id="signUpPassword" type="text" placeholder="password"><br>
-      <input id="signUpPasswordConfirmation" type="text" placeholder="password再入力"><br>
-      <button onclick="onButtonClickSignUp( )" class="btn btn-primary btn">送信
+      <input id="signUpName" class="mb-3" type="text" placeholder="お名前"><br>
+      <input id="signUpBio" class="mb-3" type="text" placeholder="自己紹介"><br>
+      <input id="signUpEmail" class="mb-3" type="text" placeholder="email"><br>
+      <input id="signUpPassword" class="mb-3" type="text" placeholder="password"><br>
+      <input id="signUpPasswordConfirmation" class="mb-2" type="text" placeholder="password再入力"><br>
+      <button onclick="onButtonClickSignUp()" class="btn btn-outline-danger mt-4 mb-5">登録する
     </div>
-    
-    <div>
-      <a href="login.html">ログインする</a>
+
+    <div class="mt-5">
+      <a href="login.html" class="text-primary mb-5">Login</a>
     </div>
   </div>
   <script src="common.js"></script>

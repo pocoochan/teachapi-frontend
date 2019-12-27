@@ -3,51 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>ログイン</title>
 </head>
 <body>
   <div class="wrapper">
-    <h1 class="text-primary mb-4">ログイン</h1>
+    <h1 class="text-danger mb-5">LOGIN</h1>
     <div class="signUpFrom  mb-4">
-      <input id="signInEmail" type="email" placeholder="email">
-      <input id="signInPassword" type="password" placeholder="password">
-      <input id="signInPasswordConfirmation" type="password" placeholder="passwordを再入力">
-      <a href="" onclick="onButtonClickSignIn();return false;" class="btn btn-primary">ログイン</a>
+      <input id="signInEmail" class="mb-3" type="email" placeholder="email"><br>
+      <input id="signInPassword" class="mb-3" type="password" placeholder="password"><br>
+      <input id="signInPasswordConfirmation" class="mb-3" type="password" placeholder="passwordを再入力"><br>
+      <button onclick="onButtonClickSignIn()" class="btn btn-outline-danger mt-4 mb-5">ログイン
     </div>
+
     <div id="login_data" class="mb-4"></div>
-
-    <div>
-        <h1 class="text-primary mb-4">新規投稿する</h1>
-        <input id="newPost" type="text" placeholder="テキスト入力"><br>
-        <a href="" onclick="onButtonClickNewPost();return false;" class="btn btn-primary">つぶやく</a>
+    <div class="footer">
+        <a href="index.html" class="text-secondary mt-4 mb-5">Back</a>
     </div>
-    <div>
-        <h1 class="text-primary mb-4">投稿を編集する</h1>
-        <input id="postId" type="number" placeholder="編集したいIDをいれてね"><br>
-        <input id="editPost" type="text" placeholder="編集する内容をいれてね"><br>
-        <a href="" onclick="onButtonClickEditPost();return false;" class="btn btn-primary">編集する</a>
-    </div>
-
-    <h1 class="text-primary mb-4">投稿を削除する</h1>
-    <input id="deletePostId" type="number" placeholder="削除したい投稿IDをいれてね">
-    <div class="signUpFrom mb-4">
-      <button onclick="onButtonClickPostDelete( )" class="btn btn-primary btn">投稿を削除する
-    </div>
-
-    <!-- footer部分 -->
-    <div>
-        <p>ログイン不要</p>
-        <ul>
-          <li><a href="index.html">ユーザー登録</a></li>
-        </ul>
-        <p>ログイン必要</p>
-        <ul>
-          <li><a href="users.html">ユーザー一覧</a></li>
-          <li><a href="posts.html">投稿一覧</a></li>
-          <li><a href="edit.html">ユーザー編集</a></li>
-        </ul>
-      </div>
   </div>
   <script src="common.js"></script>
   <script src="signIn.js"></script>

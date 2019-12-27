@@ -71,9 +71,6 @@ const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   })
   .then(response => response.json())// レスポンスの JSON を解析
-  .then(json => {
-    window.location.href = 'mypage.html';
-})
 }
 
 const sendPUTData = (url = ``, data = {}, _method = "PUT") => {

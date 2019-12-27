@@ -24,6 +24,10 @@ const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
   sendDataWithToken(urlSignIn, data).then(result => {
     // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
     localStorage.token = result.token;
+    localStorage.id = result.id;
+    localStorage.name = result.name;
+    localStorage.bio = result.bio;
+    window.location.href = 'mypage.html';
   });
 }
 

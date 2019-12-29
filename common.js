@@ -18,7 +18,7 @@ const sendData = (url = ``, data = {}, _method = "POST") => {
     // });
 }
 
-//---------★Click用
+//---------★投稿一覧Click用
 const sendGETData = (url = ``, data = {}, _method = "GET") => {
   // 既定のオプションには * が付いています
   return fetch(url, {
@@ -38,7 +38,8 @@ const sendGETData = (url = ``, data = {}, _method = "GET") => {
     })
     // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
 }
-//---------★Click用
+
+//---------★ユーザー一覧Click用
 const sendGETDataUsers = (url = ``, data = {}, _method = "GET") => {
   // 既定のオプションには * が付いています
   return fetch(url, {

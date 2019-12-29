@@ -5,17 +5,17 @@ const sendData = (url = ``, data = {}, _method = "POST") => {
   return fetch(url, {
     method: _method, // *GET, POST, PUT, DELETE, etc.
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      // "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json; charset=utf-8"
     },
     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   })
     .then(response => response.json()) // レスポンスの JSON を解析
     .then(json =>{
-      console.log(json)
-      
+      window.location.href = './mypage.html';})
+    // .then(json =>{
+    //   console.log(json)
       //window.location.href = './mypage.html'; //アカウント登録画面に強制遷移
-    });
+    // });
 }
 
 //---------★Click用
@@ -35,6 +35,26 @@ const sendGETData = (url = ``, data = {}, _method = "GET") => {
         timeline += `<p>${element.text}</p>`
       });
       document.getElementById('posts_area').innerHTML = timeline;
+    })
+    // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
+}
+//---------★Click用
+const sendGETDataUsers = (url = ``, data = {}, _method = "GET") => {
+  // 既定のオプションには * が付いています
+  return fetch(url, {
+    method: _method, // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    }
+  })
+    .then(response => response.json()) // レスポンスの JSON を解析
+    .then(json =>{
+      let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      json.forEach( element => {
+        timeline += `<p>${element.text}</p>`
+      });
+      document.getElementById('users_area').innerHTML = timeline;
     })
     // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
 }
@@ -71,9 +91,9 @@ const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   })
   .then(response => response.json())// レスポンスの JSON を解析
-  .then(json => {
-    window.location.href = 'mypage.html';
-})
+  // .then(json => {
+  //     window.location.href = 'mypage.html';
+  // })
 }
 
 const sendPUTData = (url = ``, data = {}, _method = "PUT") => {

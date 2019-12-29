@@ -2,13 +2,15 @@
 const onButtonClickGetUsers = () => {
   console.log('onButtonClickGetUsers');
 
-  //[ユーザー一覧]
-const urlUsers = 'https://teachapi.herokuapp.com/users';
 
   // HTMLから値を取得する
   const page = document.getElementById('usersPage').value;
   const limit = document.getElementById('usersLimit').value;
   const query = document.getElementById('usersQuery').value;
+
+  //[ユーザー一覧]
+const urlUsers = 'https://teachapi.herokuapp.com/users';
+console.log(urlUsers);
 
   var params = {}
   if (query === "" ) {
@@ -25,7 +27,7 @@ const urlUsers = 'https://teachapi.herokuapp.com/users';
   }
 
   const qs = new URLSearchParams(params);
-  sendGETData(`${urlUsers}?${qs}`, {}, "GET").then(result => {
+  sendGETDataUsers(`${urlUsers}?${qs}`, {}, "GET").then(result => {
     console.log(result)
   })
 

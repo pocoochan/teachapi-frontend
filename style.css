@@ -58,7 +58,7 @@ body{
 }
 .navbar-nav{
   background-color: #EC3279;
-  padding: 20px 0;
+  padding: 17px 0;
 }
 .list{
   width: 1280px;
@@ -93,12 +93,12 @@ body{
 
 #myposts_area{
   color:#666;
-  background-color: white;
+  /* background-color: white; */
   height: 100%;
   width: 480px;
   margin: 0 auto;
-  border-radius: 3%;
-  box-shadow: 16px 28px 0px -3px rgba(0,0,0,0.1);
+  /* border-radius: 3%;
+  box-shadow: 16px 28px 0px -3px rgba(0,0,0,0.1); */
 }
 #posts_area{
   color:#666;
@@ -108,4 +108,11 @@ body{
   margin: 0 auto;
   border-radius: 3%;
   background-color: white;
+}
+#myposts_area p{
+  padding: 15px 0;
+  background-color: white;
+  border-radius: 3%;
+  box-shadow: 12px 14px 0px 0px rgba(0,0,0,0.1);
+  margin-bottom: 28px;
 }

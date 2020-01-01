@@ -29,11 +29,10 @@ const onButtonClickSignUp = () => {
   // 登録APIを呼び出す
   sendData(urlSignUp, data).then(result => {
     // ユーザー登録に成功して付与されたtokenをローカルストレージに保存する
-
-    // localStorage.token = result.token;
-    // localStorage.id = result.id;
-    // localStorage.name = result.name;
-    // localStorage.bio = result.bio;
+    localStorage.token = result.token;
+    localStorage.id = result.id;
+    localStorage.name = result.name;
+    localStorage.bio = result.bio;
     console.log(result)
   });
 }

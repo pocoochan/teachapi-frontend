@@ -32,6 +32,7 @@ const sendGETData = (url = ``, data = {}, _method = "GET") => {
     .then(json =>{
       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
       json.forEach( element => {
+        console.log(element);
         timeline += `<p>${element.text}</p>`
       });
       document.getElementById('posts_area').innerHTML = timeline;
@@ -52,8 +53,10 @@ const sendGETDataUsers = (url = ``, data = {}, _method = "GET") => {
     .then(response => response.json()) // レスポンスの JSON を解析
     .then(json =>{
       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      console.log(json);
       json.forEach( element => {
-        timeline += `<p>${element.text}</p>`
+        console.log(element);
+        timeline += `<p>${element.name}</p>`
       });
       document.getElementById('users_area').innerHTML = timeline;
     })
@@ -91,10 +94,9 @@ const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
     },
     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   })
-  .then(response => response.json())// レスポンスの JSON を解析
-  // .then(json => {
-  //     window.location.href = 'mypage.html';
-  // })
+  .then(
+    () => location.reload()
+  )
 }
 
 const sendPUTData = (url = ``, data = {}, _method = "PUT") => {

@@ -10,22 +10,47 @@
 </head>
 <body>
   <div class="wrapper">
-      <h2 class="chatrooms">CHAT ROOMS</h2>
+    <h2 class="chatrooms">CHAT ROOMS</h2>
 
-      <div class="section">
-          <h1 class="text-danger mb-4">NEW CHAT ROOMS</h1>
-          <input id="newChatRooms" type="text" placeholder="+ Start New Chat"><br>
-          <a href="" onclick="onButtonClickNewChatRooms();return false;" class="btn btn-outline-danger mt-4 mb-5">チャットルームをつくる</a>
-          <div id="myposts_area"></div>
-        </div>
+    <div class="section">
+      <h1 class="text-danger mb-4">NEW CREATE</h1>
+      <input id="newChatRooms" type="text" placeholder="+ Start New Chat"><br>
+      <a href="" onclick="onButtonClickNewChatRooms();return false;" class="btn btn-outline-danger mt-4 mb-5">チャットルームをつくる</a>
+      <div id="myposts_area"></div>
+    </div>
 
-      <div class="section">
-        <h1>ALL CHAT ROOMS</h1>
-        <input id="chatRoomsPage" class="mb-2" type="text" placeholder="ページ数"><br>
-        <input id="chatRoomsLimit" class="mb-2" type="text" placeholder="１ページに表示させる数"><br>
-        <button type="button" class="btn btn-outline-danger mt-4 mb-5 rounded-pill" onclick="onButtonClickAllChatRooms( )">チャット一覧をみる</button>
-        <div id="chat_area"></div>
+    <div class="section">
+      <h1 class="text-danger mb-4">ALL CHAT ROOMS</h1>
+      <input id="chatRoomsPage" class="mb-2" type="text" placeholder="ページ数"><br>
+      <input id="chatRoomsLimit" class="mb-2" type="text" placeholder="１ページに表示させる数"><br>
+      <button type="button" class="btn btn-outline-danger mt-4 mb-5 rounded-pill" onclick="onButtonClickAllChatRooms( )">チャット一覧をみる</button>
+      <div id="chat_area"></div>
+    </div>
+
+    <div class="section">
+      <h1 class="text-danger mb-4">JOIN</h1>
+      <input id="chatroomID" type="text" placeholder="chatroom ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="onButtonClickjoinChatrooms();return false;" class="btn btn-outline-danger mt-4 mb-5">idのチャットに参加する
       </div>
+    </div><!-- チャットルームに参加 -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">MESSAGE</h1>
+      <input id="chatMessage" type="teÏxt" placeholder="+Write Message">
+      <div class="signUpFrom mb-4">
+        <button onclick="onButtonClickChatMessage();return false;" class="btn btn-outline-danger mt-4 mb-5">メッセージを送る
+      </div>
+    </div><!-- チャットルーム内でメッセージを送る -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">ALL MESSAGE</h1>
+      <input id="allChatMessage" type="text" placeholder="ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="onButtonClickAllChatMessage();return false;" class="btn btn-outline-danger mt-4 mb-5">メッセージ一覧をみる
+      </div>
+      <div id="chatMessage_area"></div>
+    </div><!-- チャットルーム内でメッセージ一覧をみる -->
 
       <div class="footer">
           <a href="mypage.html" class="text-secondary mt-4 mb-5">Back</a>

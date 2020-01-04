@@ -413,7 +413,7 @@ const follower = () => {
     });
 };
 
-//----------チャットルーム
+//----------チャットルーム作成
 const onButtonClickNewChatRooms = () => {
   const urlChatRooms = 'https://teachapi.herokuapp.com/chatrooms';
   const name = document.getElementById('newChatRooms').value;
@@ -470,6 +470,80 @@ const onButtonClickAllChatRooms = () =>{
     })
     .then(response => {
       console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------チャットルームに参加
+const onButtonClickjoinChatrooms = () => {
+  const number = document.getElementById('chatroomID').value;
+  const urlJoinChatRooms = `https://teachapi.herokuapp.com/chatrooms/${number}/join`;
+  // const name = document.getElementById('newChatRooms').value;
+
+  console.log(urlJoinChatRooms)
+
+  fetch(urlJoinChatRooms, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------チャットを送る
+const onButtonClickChatMessage = () => {
+  const number = document.getElementById('chatroomID').value;
+  const urlChatMessage = `https://teachapi.herokuapp.com/chatrooms/${number}/messages`;
+  const text = document.getElementById('chatMessage').value;
+  const messageParams = {
+    "message_params": {
+      "text": text
+    }
+  };
+
+  fetch(urlChatMessage, {
+    method: 'POST',
+    body: JSON.stringify(messageParams),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------チャットルームメッセージ一覧
+const onButtonClickAllChatMessage = () => {
+  const myId = localStorage.getItem('id');
+  const urlAllChatMessage = `https://teachapi.herokuapp.com/chatrooms/${myId}/messages`
+
+  fetch(`${urlAllChatMessage}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      let timeline = "";
+      json.forEach(element => {
+        timeline += `<p>${element.text}</p>`
+      });
+      document.getElementById('chatMessage_area').innerHTML = timeline;
     })
     .catch(error => {
       console.error(error);

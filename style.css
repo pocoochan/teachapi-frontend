@@ -41,7 +41,7 @@ body{
   font-family: 'Poiret One', cursive;
   letter-spacing: 14px;
 }
-.wrapper-mypage h2{
+.wrapper-mypage h2 , .chatrooms{
   font-family: 'Comfortaa', cursive;
   letter-spacing: 6px;
   font-size: 1em;
@@ -61,7 +61,7 @@ body{
   padding: 17px 0;
 }
 .list{
-  width: 1280px;
+  width: 1400px;
   max-width: 95%;
   margin: 0 auto;
   /* text-align: center; */

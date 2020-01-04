@@ -221,6 +221,53 @@ const onButtonClickSignIn = () => {
     })
 };
 
+// //----------3.ユーザー一覧
+// document.getElementById("usersSubmit").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   const urlUsers = 'https://teachapi.herokuapp.com/users';
+//   const page = document.getElementById('usersPage').value;
+//   const limit = document.getElementById('usersLimit').value;
+//   const query = document.getElementById('usersQuery').value;
+
+//   var usersParams = {}
+//   if (query === "") {
+//     usersParams = {
+//       "page": page,
+//       "limit": limit
+//     }
+//   } else {
+//     usersParams = {
+//       "page": page,
+//       "limit": limit,
+//       "query": query
+//     }
+//   };
+
+//   const usersQs = new URLSearchParams(usersParams);
+
+//   fetch(`${urlUsers}?${usersQs}`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': 'Bearer ' + localStorage.token
+//     }
+//   }).then(response => response.json())
+//     .then(response => {
+//       console.log('Success:', JSON.stringify(response));
+//       // localStorage.token = response.token
+//       const usersRender = document.createElement("p");
+//       usersRender.textContent = JSON.stringify(response);
+//       const users = document.querySelector("#users");
+//       users.appendChild(usersRender);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//       const usersRender = document.createElement("p");
+//       usersRender.textContent = JSON.stringify(response);
+//       const users = document.querySelector("#users");
+//       users.appendChild(usersRender);
+//     });
+// });
 
 //----------投稿作成
 const onButtonClickNewPost = () => {
@@ -366,3 +413,65 @@ const follower = () => {
     });
 };
 
+//----------チャットルーム
+const onButtonClickNewChatRooms = () => {
+  const urlChatRooms = 'https://teachapi.herokuapp.com/chatrooms';
+  const name = document.getElementById('newChatRooms').value;
+  const chatRoomsParams = {
+    "chatroom_params": {
+      "name": name
+  }
+};
+
+  fetch(urlChatRooms, {
+    method: 'POST',
+    body: JSON.stringify(chatRoomsParams),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------チャット一覧
+const onButtonClickAllChatRooms = () =>{
+  const urlAllChatRooms = 'https://teachapi.herokuapp.com/chatrooms';
+  const page = document.getElementById('chatRoomsPage').value;
+  const limit = document.getElementById('chatRoomsLimit').value;
+
+  var chatRoomsParams = {
+    "Params" : {
+      "page": page,
+      "limit": limit
+    }
+  };
+
+  const chatRoomsQs = new URLSearchParams(chatRoomsParams);
+
+  fetch(`${urlAllChatRooms}?${chatRoomsQs}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      let chatrooms = "";
+      json.forEach(element => {
+        chatrooms += `<p>${element.name}</p>`
+      });
+      document.getElementById('chat_area').innerHTML = chatrooms;
+    })
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>API課題</title>
+</head>
+
+<body>
+<div id="wrapper">
+<h1>API課題の復習
+</h1>
+<h2>ユーザー登録</h2>
+<form id="signUp">
+  <input type="text" id="signUpName" placeholder="お名前" required>
+  <input type="text" id="signUpBio" placeholder="自己紹介" required>
+  <input type="text" id="signUpEmail" placeholder="メールアドレス" required>
+  <input type="text" id="signUpPassword" placeholder="パスワード" required>
+  <input type="text" id="signUpPasswordConfirmation" placeholder="パスワード再入力" required>
+  <button type="submit" id="signUpSubmit">送信</button>
+</form>
+
+<h2>ユーザーログイン</h2>
+<form id="signIn">
+  <input type="text" id="signInEmail" placeholder="メールアドレス" required>
+  <input type="text" id="signInPassword" placeholder="パスワード" required>
+  <input type="text" id="signInPasswordConfirmation" placeholder="パスワード再入力" required>
+  <button type="submit" id="signInSubmit">ログイン</button>
+</form>
+
+<h2>ユーザー一覧</h2>
+<form id="users">
+  <input type="text" id="usersPage" placeholder="表示させたいページ数" required>
+  <input type="text" id="usersLimit" placeholder="1ページに表示させる数" required>
+  <input type="text" id="usersQuery" placeholder="検索キーワード">
+  <button type="submit" id="usersSubmit">ユーザー一覧をみる</button>
+</form>
+
+<h2>ユーザー編集</h2>
+<form id="usersEdit">
+  <input type="text" id="editName" placeholder="名前を編集する">
+  <input type="text" id="editBio" placeholder="自己紹介を編集する">
+  <button type="submit" id="userEditSubmit">ユーザーを編集する</button>
+</form>
+
+<h2>ユーザー削除</h2>
+<form id="userDelete">
+  <!-- <input type="text" id="deleteId" placeholder="削除するユーザーID"> -->
+  <button type="submit" id="userDeleteSubmit">ユーザーを削除する</button>
+</form>
+
+<h2>ユーザーのタイムライン</h2>
+<form id="allTimeline">
+  <input type="text" id="timeLinePage" placeholder="表示させたいページ数" required>
+  <input type="text" id="timeLineLimit" placeholder="1ページに表示させる数" required>
+  <input type="text" id="timeLineQuery" placeholder="検索キーワード">
+  <button type="submit" id="allTimelineSubmit">タイムライン一覧をみる</button>
+</form>
+
+<h2>投稿作成</h2>
+<form id="newPost">
+  <input type="text" id="newPostWrite" placeholder="Write" required>
+  <button type="submit" id="newPostSubmit">つぶやく</button>
+</form>
+
+<h2>投稿を編集する</h2>
+<form id="editPost">
+  <input type="text" id="editPostId" placeholder="編集したい投稿のID" required>
+  <input type="text" id="editPostWrite" placeholder="Write" required>
+  <button type="submit" id="editPostSubmit">投稿を編集する</button>
+</form>
+
+<h2>投稿削除</h2>
+<form id="postDelete">
+  <input type="text" id="deletePostId" placeholder="削除する投稿ID">
+  <button type="submit" id="deletePostSubmit">投稿を削除する</button>
+</form>
+
+<h2>myタイムライン</h2>
+<form id="myTimeline">
+  <input type="text" id="myTimeLinePage" placeholder="表示させたいページ数" required>
+  <input type="text" id="myTimeLineLimit" placeholder="1ページに表示させる数" required>
+  <input type="text" id="myTimeLineQuery" placeholder="検索キーワード">
+  <button type="submit" id="myTimelineSubmit">自分の投稿一覧をみる</button>
+</form>
+
+<h2>フォロー機能</h2>
+<form id="userFollow">
+  <input type="text" id="followUserId" placeholder="フォローしたいユーザーID" required>
+  <button type="submit" id="followUserSubmit">フォローする</button>
+</form>
+
+</div><!-- wrapper -->
+<script src="main.js"></script>
+</body>
+</html>

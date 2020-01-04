@@ -15,7 +15,7 @@
       <input id="signInEmail" class="mb-3" type="text" placeholder="email"><br>
       <input id="signInPassword" class="mb-3" type="password" placeholder="password"><br>
       <input id="signInPasswordConfirmation" class="mb-3" type="password" placeholder="passwordを再入力"><br>
-      <button onclick="onButtonClickSignIn()" class="btn btn-outline-danger mt-4 mb-5">ログイン
+      <button onclick="onButtonClickSignIn( );return false;" id="signinSubmit" class="btn btn-outline-danger mt-4 mb-5">ログイン
     </div>
 
     <div id="login_data" class="mb-4"></div>
@@ -24,6 +24,6 @@
     </div>
   </div>
   <script src="common.js"></script>
-  <script src="signIn.js"></script>
+  <!-- <script src="signIn.js"></script> -->
 </body>
 </html>

@@ -148,7 +148,7 @@
 // }
 
 
-//----------1.ユーザー登録
+//----------ユーザー登録
 const onButtonClickSignUp = () =>{
   const urlSignUp = 'https://teachapi.herokuapp.com/sign_up';
   const name = document.getElementById('signUpName').value;
@@ -184,14 +184,9 @@ const onButtonClickSignUp = () =>{
       console.error(error);
     });
   };
-  // });
-
-// }
-// document.getElementById("signUpSubmit").addEventListener("click", (event) => {
-//   event.preventDefault();
 
 
-// ユーザーログイン
+//----------ユーザーログイン
 const onButtonClickSignIn = () =>{
   const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
   const email = document.getElementById('signInEmail').value;
@@ -227,11 +222,7 @@ const onButtonClickSignIn = () =>{
   };
 
 
-// document.getElementById("signinSubmit").addEventListener("click", (event) => {
-//   event.preventDefault();
-
-
-//----------7.投稿作成
+//----------投稿作成
 const onButtonClickNewPost = () =>{
   const urlNewPost = 'https://teachapi.herokuapp.com/posts';
   const text = document.getElementById('newPostWrite').value;
@@ -251,16 +242,47 @@ const onButtonClickNewPost = () =>{
   }).then(response => response.json())
     .then(response => {
       console.log('Success:', JSON.stringify(response));
-      // const newPostRender = document.createElement("p");
-      // newPostRender.textContent = JSON.stringify(response);
-      // const newPost = document.querySelector("#newPost");
-      // newPost.appendChild(newPostRender);
     })
     .catch(error => {
       console.error(error);
-      // const newPostRender = document.createElement("p");
-      // newPostRender.textContent = JSON.stringify(response);
-      // const newPostWrite = document.querySelector("#newPostWrite");
-      // newPostWrite.appendChild(newPostRender);
+    });
+};
+
+
+//----------自分のタイムライン
+const showTimeline = () =>{
+  const myId = localStorage.getItem('id');
+  const urlMyTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
+
+  fetch(`${urlMyTimeline}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .then(response => {
+      // ↓レスポンスはとれてるのにfor eachしない
+      // console.log(element)
+      // let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      // response.forEach(element => {
+      //   timeline += `<p>${element.text}</p>`
+      // });
+
+      // ↓こういうのも試したけどだめだった
+      // const myTimelineRender = document.createElement("p");
+      // myTimelineRender.textContent = JSON.stringify(response);
+      // const myposts_area = document.querySelector("#myposts_area");
+      // myposts_area.appendChild(myTimelineRender);
+
+
+      // document.getElementById('myposts_area').value = timeline;
+      // document.getElementById('myposts_area').innerHTML = timeline;
+    })
+    .catch(error => {
+      console.error(error);
     });
 };

@@ -55,13 +55,32 @@
     </div><!-- フォロー -->
 
     <div class="section">
+      <h1 class="text-danger mb-4">Unfollow</h1>
+      <input id="Unfollow" type="text" placeholder="Follow ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="Unfollow();return false;" class="btn btn-outline-danger mt-4 mb-5">idの人のフォローを外す
+      </div>
+    </div><!-- フォローを外す -->
+
+    <div class="section">
       <h1 class="text-danger mb-4">MyFollow</h1>
       <input id="myfollow" type="text" placeholder="My ID">
       <div class="signUpFrom mb-4">
         <button onclick="myFollow();return false;" class="btn btn-outline-danger mt-4 mb-5">フォロー中のユーザーを表示
       </div>
-      <div id="followUsers"></div> <!-- ここにフォロー中のユーザーを表示 -->
+      <div id="followUsers">
+      </div> <!-- ここにフォロー中のユーザーを表示 -->
     </div><!-- フォロー中のユーザー表示 -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">Follower</h1>
+      <input id="follower" type="text" placeholder="My ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="follower();return false;" class="btn btn-outline-danger mt-4 mb-5">フォロー中のユーザーを表示
+      </div>
+      <div id="follower">
+      </div> <!-- ここにフォロワーを表示 -->
+    </div><!-- フォロワー表示 -->
 
     <div class="footer">
       <a href="login.html" class="text-secondary mt-4 mb-5">Logout</a>

@@ -261,27 +261,16 @@ const showTimeline = () => {
       'Authorization': 'Bearer ' + localStorage.token
     }
   }).then(response => response.json())
-    .then(response => {
-      console.log('Success:', JSON.stringify(response));
+    .then(json => {
+      let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      json.forEach(element => {
+        timeline += `<p>${element.text}</p>`
+      });
+      document.getElementById('myposts_area').innerHTML = timeline;
     })
-    .then(response => {
-      // ↓レスポンスはとれてるのにfor eachしない
-      // console.log(element)
-      // let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
-      // response.forEach(element => {
-      //   timeline += `<p>${element.text}</p>`
-      // });
-
-      // ↓こういうのも試したけどだめだった
-      // const myTimelineRender = document.createElement("p");
-      // myTimelineRender.textContent = JSON.stringify(response);
-      // const myposts_area = document.querySelector("#myposts_area");
-      // myposts_area.appendChild(myTimelineRender);
-
-
-      // document.getElementById('myposts_area').value = timeline;
-      // document.getElementById('myposts_area').innerHTML = timeline;
-    })
+    // .then(
+    // location.reload() これ１回だけしたいのに
+    // )
     .catch(error => {
       console.error(error);
     });
@@ -300,6 +289,26 @@ const follow = () => {
     }
   }).then(response => response.json())
     .then(console.log("フォロー完了")
+    )
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//----------フォローを外す
+const Unfollow = () => {
+  const number = document.getElementById('Unfollow').value;
+  const urlUnfollow = `https://teachapi.herokuapp.com/users/${number}/follow`;
+
+  fetch(urlUnfollow, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(console.log("フォロー解除完了です！")
     )
     .catch(error => {
       console.error(error);
@@ -326,6 +335,31 @@ const myFollow = () => {
         userText += `<p>${element.name}</p>`
       });
       document.getElementById('followUsers').innerHTML = userText;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//----------フォロワー一覧
+const follower = () => {
+  const number = document.getElementById('follower').value;
+  const urlFollower = `https://teachapi.herokuapp.com/users/${number}/followers`;
+
+  fetch(urlFollower, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      let userText = "";
+      json.forEach(element => {
+        userText += `<p>${element.name}</p>`
+      });
+      document.getElementById('follower').innerHTML = userText;
     })
     .catch(error => {
       console.error(error);

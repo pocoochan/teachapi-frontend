@@ -149,7 +149,7 @@
 
 
 //----------ユーザー登録
-const onButtonClickSignUp = () =>{
+const onButtonClickSignUp = () => {
   const urlSignUp = 'https://teachapi.herokuapp.com/sign_up';
   const name = document.getElementById('signUpName').value;
   const bio = document.getElementById('signUpBio').value;
@@ -165,9 +165,9 @@ const onButtonClickSignUp = () =>{
       "password_confirmation": passwordConfirmation
     }
   };
-  
+
   console.log(urlSignUp)
-  
+
   fetch(urlSignUp, {
     method: 'POST',
     body: JSON.stringify(signUpParams),
@@ -183,11 +183,11 @@ const onButtonClickSignUp = () =>{
     .catch(error => {
       console.error(error);
     });
-  };
+};
 
 
 //----------ユーザーログイン
-const onButtonClickSignIn = () =>{
+const onButtonClickSignIn = () => {
   const urlSignIn = 'https://teachapi.herokuapp.com/sign_in';
   const email = document.getElementById('signInEmail').value;
   const password = document.getElementById('signInPassword').value;
@@ -200,7 +200,7 @@ const onButtonClickSignIn = () =>{
     }
   };
   console.log(urlSignIn)
-  
+
   fetch(urlSignIn, {
     method: 'POST',
     body: JSON.stringify(signInParams),
@@ -218,12 +218,12 @@ const onButtonClickSignIn = () =>{
     })
     .catch(error => {
       console.error(error);
-  })
-  };
+    })
+};
 
 
 //----------投稿作成
-const onButtonClickNewPost = () =>{
+const onButtonClickNewPost = () => {
   const urlNewPost = 'https://teachapi.herokuapp.com/posts';
   const text = document.getElementById('newPostWrite').value;
   const newPostParams = {
@@ -250,7 +250,7 @@ const onButtonClickNewPost = () =>{
 
 
 //----------自分のタイムライン
-const showTimeline = () =>{
+const showTimeline = () => {
   const myId = localStorage.getItem('id');
   const urlMyTimeline = `https://teachapi.herokuapp.com/users/${myId}/timeline`
 
@@ -281,6 +281,51 @@ const showTimeline = () =>{
 
       // document.getElementById('myposts_area').value = timeline;
       // document.getElementById('myposts_area').innerHTML = timeline;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------フォロー
+const follow = () => {
+  const number = document.getElementById('follow').value;
+  const urlFollow = `https://teachapi.herokuapp.com/users/${number}/follow`;
+
+  fetch(urlFollow, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(console.log("フォロー完了")
+    )
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//----------私がフォロー中のユーザー一覧
+const myFollow = () => {
+  const number = document.getElementById('myfollow').value;
+  const urlFollowUser = `https://teachapi.herokuapp.com/users/${number}/followings`;
+
+
+  fetch(urlFollowUser, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      let userText = "";
+      json.forEach(element => {
+        userText += `<p>${element.name}</p>`
+      });
+      document.getElementById('followUsers').innerHTML = userText;
     })
     .catch(error => {
       console.error(error);

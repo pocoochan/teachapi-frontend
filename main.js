@@ -281,7 +281,7 @@ const showTimeline = () => {
     .then(json => {
       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
       json.forEach(element => {
-        timeline += `<p>${element.text}</p>`
+        timeline +=  `<p>${element.text}</p>`
       });
       document.getElementById('myposts_area').innerHTML = timeline;
     })
@@ -320,6 +320,8 @@ const onButtonClickEditPost = () => {
       console.error(error);
     });
 };
+//自分メモ：
+//投稿編集したら投稿編集したポストが１番上にきてしまう問題
 
 
 //----------投稿削除

@@ -528,8 +528,9 @@ const onButtonClickChatMessage = () => {
 
 //----------チャットルームメッセージ一覧
 const onButtonClickAllChatMessage = () => {
-  const myId = localStorage.getItem('id');
-  const urlAllChatMessage = `https://teachapi.herokuapp.com/chatrooms/${myId}/messages`
+  // const myId = localStorage.getItem('id');
+  const number = document.getElementById('allChatMessage').value;
+  const urlAllChatMessage = `https://teachapi.herokuapp.com/chatrooms/${number}/messages`
 
   fetch(`${urlAllChatMessage}`, {
     method: 'GET',
@@ -543,9 +544,18 @@ const onButtonClickAllChatMessage = () => {
       json.forEach(element => {
         timeline += `<p>${element.text}</p>`
       });
+      console.log(json)
       document.getElementById('chatMessage_area').innerHTML = timeline;
     })
     .catch(error => {
       console.error(error);
     });
 };
+
+
+//ログアウト
+const onButtonClickLogout= () =>{
+  localStorage.clear();
+  alert("ログアウトしました！");
+  window.location.href = './login.html'; //ログイン画面に強制遷移
+}

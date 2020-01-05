@@ -56,15 +56,19 @@ body{
   height: auto;
   margin-bottom: 70px;
 }
+.girls{
+  width: 80%;
+  height: auto;
+  margin-bottom: 150px;
+}
 .navbar-nav{
   background-color: #EC3279;
-  padding: 17px 0;
+  padding: 16px 0;
 }
 .list{
   width: 1400px;
   max-width: 95%;
   margin: 0 auto;
-  /* text-align: center; */
   position: relative;
 }
 .list li{
@@ -78,6 +82,18 @@ body{
 }
 .list li:hover{
   opacity: 0.5;
+}
+.nowName p, .nowBio p{
+  display: inline-block;
+}
+.textColorChange{
+  color:#521E3D;
+}
+.underLine{
+  border-bottom: dotted 2px #521E3D;
+  width: 20%;
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 .logoutBtn{
   position: absolute;
@@ -93,14 +109,11 @@ body{
 
 #myposts_area{
   color:#666;
-  /* background-color: white; */
   height: 100%;
   width: 480px;
   margin: 0 auto;
-  /* border-radius: 3%;
-  box-shadow: 16px 28px 0px -3px rgba(0,0,0,0.1); */
 }
-#posts_area{
+#posts_area , .chatMessage_area{
   color:#666;
   background-color: white;
   height: 100%;
@@ -109,10 +122,19 @@ body{
   border-radius: 3%;
   background-color: white;
 }
-#myposts_area p{
+#myposts_area p, #allPosts_area p{
   padding: 15px 0;
   background-color: white;
   border-radius: 3%;
   box-shadow: 12px 14px 0px 0px rgba(0,0,0,0.1);
   margin-bottom: 28px;
+}
+
+#users_area li{
+  list-style: none;
+  margin: 0 0 35px 0;
+}
+.userElement{
+  display: inline-block;
+  margin-right: 20px;
 }

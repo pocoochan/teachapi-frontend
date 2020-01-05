@@ -9,6 +9,15 @@
   <title>ユーザー一覧</title>
 </head>
 <body>
+<div class="navbar-nav">
+    <ul class="list">
+      <li><a class="nav-item nav-link" href="mypage.html">マイページ</a></li>
+      <li><a class="nav-item nav-link" href="chatrooms.html">チャットルーム</a></li>
+      <li><a class="nav-item nav-link" href="edit.html">ユーザー編集</a></li>
+      <li><a class="nav-item nav-link" href="posts.html">投稿一覧</a></li>
+      <button onclick="onButtonClickLogout();return false;" class="logoutBtn btn btn-dark"><a href="login.html" class="text-light">Logout</a></button>
+    </ul>
+  </div>
   <div class="wrapper">
       <h1 class="text-danger mb-5">ALL USERS</h1>
       <input id="usersPage" class="mb-2" type="text" placeholder="ページ数"><br>
@@ -23,6 +32,5 @@
       </div>
   </div>
 <script src="common.js"></script>
-<script src="users.js"></script>
 </body>
 </html>

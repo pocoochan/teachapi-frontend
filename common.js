@@ -1,153 +1,3 @@
-// //MDNからコピペしてきた関数
-// // function postData(url = ``, data = {}) {
-// const sendData = (url = ``, data = {}, _method = "POST") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8"
-//     },
-//     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       window.location.href = './mypage.html';
-//     })
-//   // .then(json =>{
-//   //   console.log(json)
-//   //window.location.href = './mypage.html'; //アカウント登録画面に強制遷移
-//   // });
-// }
-
-// //---------★投稿一覧Click用
-// const sendGETData = (url = ``, data = {}, _method = "GET") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
-//       json.forEach(element => {
-//         console.log(element);
-//         timeline += `<p>${element.text}</p>`
-//       });
-//       document.getElementById('posts_area').innerHTML = timeline;
-//     })
-//   // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
-// }
-
-// //---------★ユーザー一覧Click用
-// const sendGETDataUsers = (url = ``, data = {}, _method = "GET") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
-//       console.log(json);
-//       json.forEach(element => {
-//         console.log(element);
-//         timeline += `<p>${element.name}</p>`
-//       });
-//       document.getElementById('users_area').innerHTML = timeline;
-//     })
-//   // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
-// }
-
-// //---------★Show用
-// const sendGETData02 = (url = ``, data = {}, _method = "GET") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
-//       json.forEach(element => {
-//         timeline += `<p>${element.text}</p>`
-//       });
-//       document.getElementById('myposts_area').innerHTML = timeline;
-//     })
-//   // .catch(error => console.log(`Error: $(error)`)); // エラー内容が出力される
-// }
-
-// // const sendDataWithToken = (url = ``, data = {}, _method = "POST") => {
-// //   // 既定のオプションには * が付いています
-// //   return fetch(url, {
-// //     method: _method, // *GET, POST, PUT, DELETE, etc.
-// //     headers: {
-// //       "Content-Type": "application/json; charset=utf-8",
-// //       "Authorization": "Bearer " + localStorage.getItem("token")
-// //     },
-// //     body: JSON.stringify(data), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
-// //   })
-// //   .then(
-// //     () => location.reload()
-// //   )
-// // }
-
-// const sendPUTData = (url = ``, data = {}, _method = "PUT") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     },
-//     body: JSON.stringify(data || "null"),
-//   })
-//     .then(response => response.json()); // レスポンスの JSON を解析
-// }
-
-// const sendDeleteData = (url = ``, _method = "DELETE") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       localStorage.clear();
-//       alert("ユーザー削除完了です！");
-//       window.location.href = './index.html'; //アカウント登録画面に強制遷移
-//     })
-// }
-
-// const sendDeletePOST = (url = ``, _method = "DELETE") => {
-//   // 既定のオプションには * が付いています
-//   return fetch(url, {
-//     method: _method, // *GET, POST, PUT, DELETE, etc.
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "Authorization": "Bearer " + localStorage.getItem("token")
-//     }
-//   })
-//     .then(response => response.json()) // レスポンスの JSON を解析
-//     .then(json => {
-//       localStorage.clear();
-//       alert("投稿削除完了です！");
-//       window.location.href = './login.html'; //ログイン画面に強制遷移
-//     })
-// }
-
-
 //----------ユーザー登録
 const onButtonClickSignUp = () => {
   const urlSignUp = 'https://teachapi.herokuapp.com/sign_up';
@@ -221,53 +71,130 @@ const onButtonClickSignIn = () => {
     })
 };
 
-// //----------3.ユーザー一覧
-// document.getElementById("usersSubmit").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   const urlUsers = 'https://teachapi.herokuapp.com/users';
-//   const page = document.getElementById('usersPage').value;
-//   const limit = document.getElementById('usersLimit').value;
-//   const query = document.getElementById('usersQuery').value;
 
-//   var usersParams = {}
-//   if (query === "") {
-//     usersParams = {
-//       "page": page,
-//       "limit": limit
-//     }
-//   } else {
-//     usersParams = {
-//       "page": page,
-//       "limit": limit,
-//       "query": query
-//     }
-//   };
+//----------ユーザー一覧をみる
+const onButtonClickGetUsers = () => {
+  const urlUsers = 'https://teachapi.herokuapp.com/users';
+  const page = document.getElementById('usersPage').value;
+  const limit = document.getElementById('usersLimit').value;
+  const query = document.getElementById('usersQuery').value;
 
-//   const usersQs = new URLSearchParams(usersParams);
+  var usersParams = {}
+  if (query === "") {
+    usersParams = {
+      "page": page,
+      "limit": limit
+    }
+  } else {
+    usersParams = {
+      "page": page,
+      "limit": limit,
+      "query": query
+    }
+  };
 
-//   fetch(`${urlUsers}?${usersQs}`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization': 'Bearer ' + localStorage.token
-//     }
-//   }).then(response => response.json())
-//     .then(response => {
-//       console.log('Success:', JSON.stringify(response));
-//       // localStorage.token = response.token
-//       const usersRender = document.createElement("p");
-//       usersRender.textContent = JSON.stringify(response);
-//       const users = document.querySelector("#users");
-//       users.appendChild(usersRender);
-//     })
-//     .catch(error => {
-//       console.error(error);
-//       const usersRender = document.createElement("p");
-//       usersRender.textContent = JSON.stringify(response);
-//       const users = document.querySelector("#users");
-//       users.appendChild(usersRender);
-//     });
-// });
+  const usersQs = new URLSearchParams(usersParams);
+
+  fetch(`${urlUsers}?${usersQs}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    // .then(response => {
+    //   console.log('Success:', JSON.stringify(response));
+    // })
+    .then(json => {
+      let timeline = ""; // 指定した数のオブジェクトを入れる箱ができました
+      json.forEach(element => {
+        if (element.is_following === true) {
+          timeline += `<li class="userareaBox">
+            <div class="userElement">
+              ${element.name}
+            </div>
+            <div class="userElement">
+              <div class="">
+                <button class="btn btn-secondary btn-sm" onclick="Unfollow(${element.id})">フォロー解除</button>
+              </div>
+            </div>
+          </li>\n`;
+        } else if (element.is_following === false) {
+          timeline += `<li class="">
+          <div class="userElement">
+            ${element.name}
+          </div>
+          <div class="userElement">
+            <div class="">
+              <button  class="btn btn-danger btn-sm" onclick="follow(${element.id})">フォローする</button>
+            </div>
+          </div>
+        </li>\n`;
+        }
+      });
+      document.getElementById('users_area').innerHTML = timeline;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+//----------ユーザー編集
+const onButtonClickPutEdit = () => {
+  const myId = localStorage.getItem('id');
+  const urlUserEdit = `https://teachapi.herokuapp.com/users/${myId}`;
+  const editName = document.getElementById('editName').value;
+  const editBio = document.getElementById('editBio').value;
+  const userEditParams = {
+    "user_params": {
+      "name": editName,
+      "bio": editBio
+    }
+  };
+
+  fetch(urlUserEdit, {
+    method: 'PUT',
+    body: JSON.stringify(userEditParams),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+//自分用メモ：
+//ローカルストレージに編集後のnameとbioが保存されるようになってる？
+//名前、自己紹介どちらかだけ編集したい場合の実装
+//編集した際に、上に表示している現在の名前、自己紹介が瞬時に変わらない。ログインしなおしたら変更なってる
+
+
+//----------ユーザー削除
+const onButtonClickDelete = () => {
+  const myId = localStorage.getItem('id');
+  const urlUserDelete = `https://teachapi.herokuapp.com/users/${myId}`;
+
+  fetch(urlUserDelete, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      localStorage.clear();
+      alert("ユーザー削除完了です！");
+      window.location.href = 'index.html';
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
 
 //----------投稿作成
 const onButtonClickNewPost = () => {
@@ -289,6 +216,49 @@ const onButtonClickNewPost = () => {
   }).then(response => response.json())
     .then(response => {
       console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//---------タイムライン表示
+const onButtonClickTimeline = () => {
+  const urlAllTimeline = 'https://teachapi.herokuapp.com/posts';
+  const page = document.getElementById('timelinePage').value;
+  const limit = document.getElementById('timelineLimit').value;
+  const query = document.getElementById('timelineQuery').value;
+
+  var timelineParams = {}
+  if (query === "") {
+    usersParams = {
+      "page": page,
+      "limit": limit
+    }
+  } else {
+    timelineParams = {
+      "page": page,
+      "limit": limit,
+      "query": query
+    }
+  };
+
+  const timelineQs = new URLSearchParams(timelineParams);
+
+  fetch(`${urlAllTimeline}?${timelineQs}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(json => {
+      let timeline = "";
+      json.forEach(element => {
+        timeline += `<p>${element.user.name} : ${element.text}</p>`
+      });
+      document.getElementById('allPosts_area').innerHTML = timeline;
     })
     .catch(error => {
       console.error(error);
@@ -323,11 +293,65 @@ const showTimeline = () => {
     });
 };
 
-//----------フォロー
-const follow = () => {
-  const number = document.getElementById('follow').value;
-  const urlFollow = `https://teachapi.herokuapp.com/users/${number}/follow`;
 
+//----------投稿編集
+const onButtonClickEditPost = () => {
+  const number = document.getElementById('editPostId').value;
+  const text = document.getElementById('editPostWrite').value;
+  const urlEditPost = `https://teachapi.herokuapp.com/posts/${number}`;
+  const editPostParams = {
+    "post_params": {
+      "text": text
+    }
+  };
+
+  fetch(urlEditPost, {
+    method: 'PUT',
+    body: JSON.stringify(editPostParams),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//----------投稿削除
+const onButtonClickDeletePost = () => {
+  const number = document.getElementById('deletePostId').value;
+  const urlPostDelete = `https://teachapi.herokuapp.com/posts/${number}`;
+
+  fetch(urlPostDelete, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.token
+    }
+  }).then(response => response.json())
+    .then(response => {
+      console.log('Success:', JSON.stringify(response));
+    })
+    .then(json => {
+      localStorage.clear();
+      alert("投稿削除完了です！");
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+
+//----------フォロー
+function follow(id)  {
+  // const number = document.getElementById('follow').value;
+  const urlFollow = `https://teachapi.herokuapp.com/users/${id}/follow`;
+  console.log(urlFollow)
   fetch(urlFollow, {
     method: 'POST',
     headers: {
@@ -344,10 +368,10 @@ const follow = () => {
 
 
 //----------フォローを外す
-const Unfollow = () => {
-  const number = document.getElementById('Unfollow').value;
-  const urlUnfollow = `https://teachapi.herokuapp.com/users/${number}/follow`;
-
+function Unfollow (id) {
+  // const number = document.getElementById('Unfollow').value;
+  const urlUnfollow = `https://teachapi.herokuapp.com/users/${id}/follow`;
+  console.log(urlUnfollow)
   fetch(urlUnfollow, {
     method: 'DELETE',
     headers: {
@@ -361,6 +385,9 @@ const Unfollow = () => {
       console.error(error);
     });
 };
+//自分メモ：
+//ユーザー一覧とリンクさせてボタンを押したらフォロー&フォロー解除
+//できるようにしたけど、アロー関数だとうまくいかなかった。
 
 
 //----------私がフォロー中のユーザー一覧
@@ -420,8 +447,8 @@ const onButtonClickNewChatRooms = () => {
   const chatRoomsParams = {
     "chatroom_params": {
       "name": name
-  }
-};
+    }
+  };
 
   fetch(urlChatRooms, {
     method: 'POST',
@@ -440,13 +467,13 @@ const onButtonClickNewChatRooms = () => {
 };
 
 //----------チャット一覧
-const onButtonClickAllChatRooms = () =>{
+const onButtonClickAllChatRooms = () => {
   const urlAllChatRooms = 'https://teachapi.herokuapp.com/chatrooms';
   const page = document.getElementById('chatRoomsPage').value;
   const limit = document.getElementById('chatRoomsLimit').value;
 
   var chatRoomsParams = {
-    "Params" : {
+    "Params": {
       "page": page,
       "limit": limit
     }
@@ -554,7 +581,7 @@ const onButtonClickAllChatMessage = () => {
 
 
 //ログアウト
-const onButtonClickLogout= () =>{
+const onButtonClickLogout = () => {
   localStorage.clear();
   alert("ログアウトしました！");
   window.location.href = './login.html'; //ログイン画面に強制遷移

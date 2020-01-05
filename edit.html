@@ -8,7 +8,27 @@
   <title>ユーザー編集</title>
 </head>
 <body>
+<div class="navbar-nav">
+    <ul class="list">
+      <li><a class="nav-item nav-link" href="mypage.html">マイページ</a></li>
+      <li><a class="nav-item nav-link" href="chatrooms.html">チャットルーム</a></li>
+      <li><a class="nav-item nav-link" href="users.html">ユーザー一覧</a></li>
+      <li><a class="nav-item nav-link" href="posts.html">投稿一覧</a></li>
+      <button onclick="onButtonClickLogout();return false;" class="logoutBtn btn btn-dark"><a href="login.html" class="text-light">Logout</a></button>
+    </ul>
+  </div>
   <div class="wrapper">
+  <div class="mb-4">
+    <div class="nowName">
+      <p>お名前 　： </p>
+      <p id="userName" class="textColorChange"></p>
+    </div>
+    <div class=nowBio>
+      <p>自己紹介 ： </p>
+      <p id="userBio" class="textColorChange"></p>
+    </div>
+  </div>
+  <div class="underLine"></div>
   <h1 class="text-danger mb-4">EDIT USER</h1>
     <div class="mb-4">
       <input id="editName" class="mb-2" type="text" placeholder="お名前"><br>
@@ -17,9 +37,8 @@
     </div>
 
   <h1 class="text-danger mb-4">DELETE USER</h1>
-  <input id="deletePostId" type="text" placeholder="Delete ID">
     <div class="mb-4">
-      <button onclick="onButtonClickDelete( )" class="btn btn-outline-danger mt-4 mb-5">アカウントを削除する
+      <button onclick="onButtonClickDelete( )" class="btn btn-danger mt-4 mb-5">アカウントを削除する
     </div>
 
     <div class="footer">
@@ -28,6 +47,13 @@
 
   </div>
   <script src="common.js"></script>
-  <script src="edit.js"></script>
+  <script>
+    // トークンがなかったらログイン画面に遷移
+    if (!localStorage.token) {
+      window.location.href = 'login.html';
+    }
+    document.getElementById('userName').textContent = localStorage.getItem('name');
+    document.getElementById('userBio').textContent = localStorage.getItem('bio');
+  </script>
 </body>
-</html>
+</html>Ï

@@ -145,12 +145,44 @@ const onButtonClickPutEdit = () => {
   const urlUserEdit = `https://teachapi.herokuapp.com/users/${myId}`;
   const editName = document.getElementById('editName').value;
   const editBio = document.getElementById('editBio').value;
+
+  // var userEditParams ={}
+  // if(bio === ""){
+  //   user_params= {
+  //         "name": editName
+  //       }
+  // }else if(name === ""){
+  //   user_params= {
+  //     "bio": editBio
+  //   } else {
+  //     user_params = {
+  //           "name": editName,
+  //           "bio": editBio
+  //         }
+  //   }
+  // };
+
   const userEditParams = {
     "user_params": {
       "name": editName,
       "bio": editBio
     }
   };
+
+
+  // var usersParams = {}
+  // if (query === "") {
+  //   usersParams = {
+  //     "page": page,
+  //     "limit": limit
+  //   }
+  // } else {
+  //   usersParams = {
+  //     "page": page,
+  //     "limit": limit,
+  //     "query": query
+  //   }
+  // };
 
   fetch(urlUserEdit, {
     method: 'PUT',

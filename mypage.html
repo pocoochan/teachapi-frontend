@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang=“ja”>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>MyPage</title>
+</head>
+
+<body>
+
+  <div class="navbar-nav">
+    <ul class="list">
+      <li><a class="nav-item nav-link" href="users.html">ユーザー一覧</a></li>
+      <li><a class="nav-item nav-link" href="posts.html">投稿一覧</a></li>
+      <li><a class="nav-item nav-link" href="edit.html">ユーザー編集</a></li>
+      <li><a class="nav-item nav-link" href="chatrooms.html">チャットルーム</a></li>
+      <button onclick="onButtonClickLogout();return false;" class="logoutBtn btn btn-dark"><a href="login.html" class="text-light">Logout</a></button>
+    </ul>
+  </div>
+  <div class="wrapper-mypage">
+    <h2>MYPAGE</h2>
+    <div>
+      <img src="./img/79345932_480x480.png" class="icon" alt="" width="" height="">
+    </div>
+    <div class="section">
+      <h1 class="text-danger mb-4">NEW POST</h1>
+      <input id="newPostWrite" type="text" placeholder="+ Write"><br>
+      <a href="" onclick="onButtonClickNewPost();return false;" class="btn btn-outline-danger mt-4 mb-5">つぶやく</a>
+      <div id="myposts_area"></div>
+    </div>
+    <div class="section">
+      <h1 class="text-danger mb-4">EDIT POST</h1>
+      <input id="editPostId" class="mb-2" type="text" placeholder="Edit ID"><br>
+      <input id="editPostWrite" type="text" placeholder="Edit Text"><br>
+      <a href="" onclick="onButtonClickEditPost();return false;" class="btn btn-outline-danger mt-4 mb-5">編集する</a>
+    </div>
+    <div class="section">
+      <h1 class="text-danger mb-4">DELETE POST</h1>
+      <input id="deletePostId" type="text" placeholder="Delete ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="onButtonClickDeletePost();return false;" class="btn btn-outline-danger mt-4 mb-5">投稿を削除する
+      </div>
+    </div>
+
+    <div class="section">
+      <h1 class="text-danger mb-4">Follow</h1>
+      <input id="follow" type="text" placeholder="Follow ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="follow();return false;" class="btn btn-outline-danger mt-4 mb-5">idの人をフォロー
+      </div>
+    </div><!-- フォロー -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">Unfollow</h1>
+      <input id="Unfollow" type="text" placeholder="Follow ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="Unfollow();return false;" class="btn btn-outline-danger mt-4 mb-5">idの人のフォローを外す
+      </div>
+    </div><!-- フォローを外す -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">MyFollow</h1>
+      <input id="myfollow" type="text" placeholder="My ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="myFollow();return false;" class="btn btn-outline-danger mt-4 mb-5">フォロー中のユーザーを表示
+      </div>
+      <div id="followUsers">
+      </div> <!-- ここにフォロー中のユーザーを表示 -->
+    </div><!-- フォロー中のユーザー表示 -->
+
+    <div class="section">
+      <h1 class="text-danger mb-4">Follower</h1>
+      <input id="follower" type="text" placeholder="My ID">
+      <div class="signUpFrom mb-4">
+        <button onclick="follower();return false;" class="btn btn-outline-danger mt-4 mb-5">フォロー中のユーザーを表示
+      </div>
+      <div id="follower">
+      </div> <!-- ここにフォロワーを表示 -->
+    </div><!-- フォロワー表示 -->
+
+    <div class="footer">
+      <a href="login.html" class="text-secondary mt-4 mb-5">Logout</a>
+    </div>
+
+  </div> <!-- wrapper -->
+  <script src="main.js"></script>
+  <!-- <script src="mypage.js"></script> -->
+  <script>showTimeline();</script>
+</body>
+
+</html>

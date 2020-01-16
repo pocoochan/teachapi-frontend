@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=“ja”>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>TIMELINE</title>
+</head>
+<body>
+<div class="navbar-nav">
+    <ul class="list">
+      <li><a class="nav-item nav-link" href="mypage.html">マイページ</a></li>
+      <li><a class="nav-item nav-link" href="chatrooms.html">チャットルーム</a></li>
+      <li><a class="nav-item nav-link" href="users.html">ユーザー一覧</a></li>
+      <li><a class="nav-item nav-link" href="edit.html">ユーザー編集</a></li>
+      <button onclick="onButtonClickLogout();return false;" class="logoutBtn btn btn-dark"><a href="login.html" class="text-light">Logout</a></button>
+    </ul>
+  </div>
+  <div class="wrapper">
+        <h1 class="text-danger mb-5">TIMELINE</h1>
+      <div>
+      <input id="timelinePage" class="mb-2" type="text" placeholder="ページ数"><br>
+      <input id="timelineLimit" class="mb-2" type="text" placeholder="1ページに表示させる数"><br>
+      <input id="timelineQuery"class="mb-2"  type="text" placeholder="検索キーワード"><br>
+      <button type="button" class="btn btn-outline-danger mt-4 mb-5 rounded-pill" onclick="onButtonClickTimeline( )">タイムライン一覧をみる</button>
+      </div>
+
+    <div id="allPosts_area"></div>
+
+    <div class="footer">
+        <a href="mypage.html" class="text-secondary mt-4 mb-5">Back</a>
+    </div>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
